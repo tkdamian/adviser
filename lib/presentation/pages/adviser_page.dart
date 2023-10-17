@@ -1,3 +1,5 @@
+import 'package:adviser/presentation/widgets/advice_field.dart';
+import 'package:adviser/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class AdviserPage extends StatelessWidget {
@@ -9,6 +11,29 @@ class AdviserPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Adviser"),
         ),
-        body: const Center(child: Text("Your Advice is waiting for you!")));
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              children: [
+                const Expanded(
+                    child: Center(
+                        child: AdviceField(
+                  advice: "This is a Test Advice!",
+                ))),
+                SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: CustomButton(
+                      onPressed: () {
+                        print("button pressed");
+                      },
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
