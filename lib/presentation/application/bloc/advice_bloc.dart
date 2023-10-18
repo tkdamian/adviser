@@ -9,8 +9,8 @@ part 'advice_event.dart';
 part 'advice_state.dart';
 
 class AdviceBloc extends Bloc<AdviceEvent, AdviceState> {
-  final usecase = AdviceUsecase();
-  AdviceBloc() : super(AdviceInitial()) {
+  final AdviceUsecase usecase;
+  AdviceBloc({required this.usecase}) : super(AdviceInitial()) {
     on<AdviceRequestEvent>((event, emit) async {
       emit(AdviceStateLoading());
       Either<AdviceFailure, AdviceEntity> adviceOrFailure =
